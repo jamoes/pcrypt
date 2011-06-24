@@ -4,7 +4,7 @@ Installation:
 
 Python version 2.4 or higher must be installed on your system.
 Also, the Python Cryptography Toolkit must be installed, you can access it
-at the url: http://www.amk.ca/python/code/crypto.html.
+at the url: http://www.pycrypto.org/.
 
 USAGE: pcrypt.py [OPTIONS] file
      -m <number>           Minimum number of keys required to decrypt file
