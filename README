@@ -1,0 +1,41 @@
+Pcrypt, a multi-party polynomial encryption system.
+
+Installation:
+
+Python version 2.4 or higher must be installed on your system.
+Also, the Python Cryptography Toolkit must be installed, you can access it
+at the url: http://www.amk.ca/python/code/crypto.html.
+
+USAGE: pcrypt.py [OPTIONS] file
+     -m <number>           Minimum number of keys required to decrypt file
+     -n <number>           Number of keys to generate
+     -d <filelist>         Decrypt the file
+                           <filelist> is a list of semicolon seperated
+                           point files, such as file.p1;file.p2;file.p3
+     -o <file>             The file to output to
+                           By default, the file will be output to file.pcrypt
+                           if encrpyting, and file.pdecrypt if decrypting
+     -k <keylength>        The length of the key, must be 16, 24, or 32.
+                           Default is 16
+     --help                Display a help message
+
+For example, to encrypt this file, with 3 people minimum needed to decrypt it
+and 5 points to be generated, run the command:
+
+./pcrypt.py -m 3 -n 5 README
+
+this will create a file called README.pcrypt, as well as five point files, 
+README.p1, README.p2 ...
+
+At this point, you would distribute README.pcrypt to everyone, as well as giving
+everyone one point file.
+
+In order to decrypt the README.pcrypt file, you need at least 3 point files.
+Let's say you have p1, p4, and p5. In order to decrypt the file, run the
+command:
+
+./pcrypt.py -d README.p1\;README.p4\;README.p5 README.pcrypt
+
+Note that you need the '\' in front of the ';' in order to escape from the
+semicolon being interpereted as a shell specific character. This command will 
+create a file called README.pcrypt.pdecrpyt, which will be identical to README.
